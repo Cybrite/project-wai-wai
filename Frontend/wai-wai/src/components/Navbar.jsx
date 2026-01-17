@@ -1,7 +1,9 @@
 // frontend/wai-wai/src/components/Navbar.jsx
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FiHome, FiBriefcase, FiUser, FiLogOut, FiMenu, FiX } from 'react-icons/fi';
 
 const Navbar = () => {
   const { user, logout } = useAuth();
@@ -42,6 +44,16 @@ const Navbar = () => {
           },
         ]
       : []),
+     // Add Resume Parser to main nav for visibility
+    ...(user 
+      ? [
+          {
+            path: "/resume-parser",
+            label: "Smart Resume",
+            icon: <FiUser />, 
+          },
+        ]
+      : []),
   ];
 
   return (
@@ -69,19 +81,36 @@ const Navbar = () => {
           </motion.div>
         </Link>
 
-        {/* Show Smart Resume to all logged-in users */}
-        {user && (
-             <Link to="/resume-parser" style={styles.link}>Smart Resume</Link>
-        )}
+        {/* Desktop Links */}
+        <div style={styles.desktopLinks}>
+            {navLinks.map((link) => (
+                <Link key={link.path} to={link.path} style={{textDecoration: 'none'}}>
+                    <div style={isActive(link.path) ? styles.navLinkActive : styles.navLink}>
+                        {link.label}
+                    </div>
+                </Link>
+            ))}
+        </div>
 
-        {user ? (
-            <button onClick={handleLogout} style={styles.ctaButton}>Logout</button>
-        ) : (
-            <Link to="/auth" style={styles.ctaButton}>Login / Sign Up</Link>
-        )}
+        {/* User Actions (Desktop) */}
+        <div style={styles.desktopActions}>
+            {user ? (
+                <button onClick={handleLogout} style={styles.ctaButton}>Logout</button>
+            ) : (
+                <Link to="/auth" style={styles.ctaButton}>Login</Link>
+            )}
+        </div>
+
+        {/* Mobile Menu Toggle Button */}
+        <button 
+            style={styles.mobileMenuBtn} 
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        >
+            {mobileMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+        </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Dropdown */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -176,15 +205,8 @@ const styles = {
     justifyContent: "space-between",
     alignItems: "center",
   },
-  logoLink: {
-    textDecoration: "none",
-  },
-  logo: {
-    display: "flex",
-    alignItems: "center",
-    gap: "0.75rem",
-    cursor: "pointer",
-  },
+  logoLink: { textDecoration: "none" },
+  logo: { display: "flex", alignItems: "center", gap: "0.75rem", cursor: "pointer" },
   logoIcon: {
     width: "40px",
     height: "40px",
@@ -204,70 +226,13 @@ const styles = {
     WebkitTextFillColor: "transparent",
     backgroundClip: "text",
   },
-  desktopLinks: {
-    display: "flex",
-    alignItems: "center",
-    gap: "2rem",
-  },
-  navLink: {
-    display: "flex",
-    alignItems: "center",
-    gap: "0.5rem",
-    padding: "0.5rem 1rem",
-    fontSize: "1rem",
-    fontWeight: "600",
-    color: "#6B7280",
-    borderRadius: "0.5rem",
-    transition: "all 0.2s ease",
-    cursor: "pointer",
-  },
-  navLinkActive: {
-    color: "#4F46E5",
-    backgroundColor: "#EEF2FF",
-  },
-  navIcon: {
-    fontSize: "1.125rem",
-    display: "flex",
-    alignItems: "center",
-  },
-  userSection: {
-    display: "flex",
-    alignItems: "center",
-    gap: "1rem",
-  },
-  userInfo: {
-    display: "flex",
-    alignItems: "center",
-    gap: "0.5rem",
-    padding: "0.5rem 1rem",
-    backgroundColor: "#F9FAFB",
-    borderRadius: "0.5rem",
-    fontSize: "0.875rem",
-    color: "#6B7280",
-  },
-  userIcon: {
-    fontSize: "1rem",
-  },
-  userEmail: {
-    maxWidth: "150px",
-    overflow: "hidden",
-    textOverflow: "ellipsis",
-    whiteSpace: "nowrap",
-  },
-  logoutBtn: {
-    display: "flex",
-    alignItems: "center",
-    gap: "0.5rem",
-    padding: "0.5rem 1rem",
-    fontSize: "0.95rem",
-    fontWeight: "600",
-    color: "#DC2626",
-    backgroundColor: "#FEE2E2",
-    border: "none",
-    borderRadius: "0.5rem",
-    cursor: "pointer",
-    transition: "all 0.2s ease",
-  },
+  
+  // Desktop Links
+  desktopLinks: { display: "flex", alignItems: "center", gap: "2rem" },
+  navLink: { padding: "0.5rem 1rem", fontSize: "1rem", fontWeight: "600", color: "#6B7280", cursor: "pointer" },
+  navLinkActive: { padding: "0.5rem 1rem", fontSize: "1rem", fontWeight: "600", color: "#4F46E5", backgroundColor: "#EEF2FF", borderRadius: "0.5rem" },
+  
+  desktopActions: { display: "flex", alignItems: "center" },
   ctaButton: {
     padding: "0.75rem 1.5rem",
     fontSize: "1rem",
@@ -277,20 +242,13 @@ const styles = {
     border: "none",
     borderRadius: "0.75rem",
     cursor: "pointer",
-    boxShadow: "0 4px 12px rgba(79, 70, 229, 0.3)",
-    transition: "all 0.3s ease",
+    textDecoration: 'none'
   },
-  btnIcon: {
-    fontSize: "1rem",
-  },
-  mobileMenuBtn: {
-    display: "none",
-    padding: "0.5rem",
-    backgroundColor: "transparent",
-    border: "none",
-    color: "#4F46E5",
-    cursor: "pointer",
-  },
+  
+  // Mobile Button
+  mobileMenuBtn: { display: "none", background: "none", border: "none", cursor: "pointer", color: "#4F46E5" },
+  
+  // Mobile Menu Styles
   mobileMenu: {
     display: "flex",
     flexDirection: "column",
@@ -309,12 +267,8 @@ const styles = {
     fontWeight: "600",
     color: "#6B7280",
     borderRadius: "0.5rem",
-    transition: "all 0.2s ease",
   },
-  mobileNavLinkActive: {
-    color: "#4F46E5",
-    backgroundColor: "#EEF2FF",
-  },
+  mobileNavLinkActive: { color: "#4F46E5", backgroundColor: "#EEF2FF" },
   mobileUserInfo: {
     display: "flex",
     alignItems: "center",
@@ -354,14 +308,17 @@ const styles = {
   },
 };
 
-// Media query for mobile menu button
+// Inject Media Queries via JS (Simple method)
 if (typeof window !== "undefined") {
   const style = document.createElement("style");
   style.textContent = `
     @media (max-width: 768px) {
-      nav > div > div:nth-child(2) {
+      /* Hide Desktop Elements */
+      nav > div > div:nth-child(2),
+      nav > div > div:nth-child(3) {
         display: none !important;
       }
+      /* Show Mobile Toggle */
       nav button[style*="mobileMenuBtn"] {
         display: block !important;
       }

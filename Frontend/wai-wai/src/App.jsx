@@ -3,11 +3,11 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Home from './pages/Home';
+import JobDashboard from './pages/JobDashboard'; // <-- NEW: Imported Dashboard
 import JobGenerator from './pages/JobGenerator';
-import ResumeParser from './pages/ResumeParser'; // Import the new page
+import ResumeParser from './pages/ResumeParser';
 import Auth from './pages/Auth';
-import ProtectedRoute from './components/ProtectedRoute'; // Ensure this is imported for security
+import ProtectedRoute from './components/ProtectedRoute';
 import './App.css';
 
 function App() {
@@ -25,7 +25,9 @@ function App() {
           <Navbar />
           <main style={{ flex: 1, width: "100%" }}>
             <Routes>
-              <Route path="/" element={<Home />} />
+              {/* LANDING PAGE: Now shows the Job Discovery Dashboard */}
+              <Route path="/" element={<JobDashboard />} />
+
               <Route path="/auth" element={<Auth />} />
               
               {/* Job Generator: Restricted to Employers */}
