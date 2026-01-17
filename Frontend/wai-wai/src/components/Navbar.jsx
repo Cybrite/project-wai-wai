@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { motion, AnimatePresence } from "framer-motion";
+import wevolveLogo from '../assets/wevolve_logo.png';
 import {
   FiHome,
   FiBriefcase,
@@ -89,14 +90,17 @@ const Navbar = () => {
       <div className="navbar-container">
         {/* Logo */}
         <Link to="/" className="logo-link">
-          <motion.div
+        <motion.div
             className="logo"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <div className="logo-icon">
-              <FiBriefcase />
-            </div>
+            {/* Replaced Icon with Image */}
+            <img 
+              src={wevolveLogo} 
+              alt="Wevolve AI" 
+              style={{ height: '40px', width: 'auto', marginRight: '10px' }} 
+            />
             <span className="logo-text">Wevolve AI</span>
           </motion.div>
         </Link>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FiBriefcase, FiLinkedin, FiTwitter, FiGithub } from "react-icons/fi";
 import "../styles/Footer.css";
+import wevolveLogo from '../assets/wevolve_logo.png';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -26,8 +27,13 @@ const Footer = () => {
         <div className="footer__content">
           {/* Brand */}
           <div className="footer__brand">
-            <div className="footer__logo">
-              <FiBriefcase className="footer__logo-icon" />
+          <div className="footer__logo">
+              {/* Replaced Icon with Image */}
+              <img 
+                src={wevolveLogo} 
+                alt="Wevolve AI" 
+                style={{ height: '32px', width: 'auto', marginRight: '8px' }} 
+              />
               <span className="footer__logo-text">Wevolve AI</span>
             </div>
             <p className="footer__tagline">AI-powered recruitment solutions</p>
