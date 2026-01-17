@@ -58,11 +58,11 @@
 }
 
 .footer__link {
-  font-size: var(--text-sm);
+  font-size: 1.125rem;
   color: var(--color-gray-600);
   background: none;
   border: none;
-  padding: 0;
+  padding: var(--space-4) 0;
   cursor: pointer;
   font-family: inherit;
   font-weight: 500;

@@ -61,20 +61,6 @@ const Footer = () => {
             </button>
           </div>
 
-          {/* Newsletter */}
-          <form className="footer__newsletter" onSubmit={handleSubscribe}>
-            <input
-              type="email"
-              placeholder="Your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="footer__input"
-            />
-            <button type="submit" className="footer__button">
-              Subscribe
-            </button>
-          </form>
-
           {/* Social */}
           <div className="footer__social">
             <a href="#" className="footer__social-link" aria-label="Twitter">
