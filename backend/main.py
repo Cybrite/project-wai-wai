@@ -29,10 +29,15 @@ app.add_middleware(
 # --- CLIENTS ---
 groq_client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 hf_client = InferenceClient(token=os.environ.get("HF_API_TOKEN"))
-supabase: Client = create_client(
-    os.environ.get("SUPABASE_URL"),
-    os.environ.get("SUPABASE_KEY")
-)
+
+# Debug: Print what we're loading
+supabase_url = os.environ.get("SUPABASE_URL")
+supabase_key = os.environ.get("SUPABASE_KEY")
+print(f"🔍 SUPABASE_URL: {supabase_url}")
+print(f"🔍 SUPABASE_KEY: {supabase_key[:20] if supabase_key else 'None'}...")
+print(f"🔍 Key starts with 'eyJ': {supabase_key.startswith('eyJ') if supabase_key else False}")
+
+supabase: Client = create_client(supabase_url, supabase_key)
 
 # --- MODELS ---
 class JobRequest(BaseModel):

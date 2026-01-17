@@ -1,7 +1,9 @@
 // frontend/wai-wai/src/components/Navbar.jsx
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+import { FiHome, FiBriefcase, FiUser, FiLogOut } from "react-icons/fi";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const { user, logout } = useAuth();
@@ -71,13 +73,19 @@ const Navbar = () => {
 
         {/* Show Smart Resume to all logged-in users */}
         {user && (
-             <Link to="/resume-parser" style={styles.link}>Smart Resume</Link>
+          <Link to="/resume-parser" style={styles.link}>
+            Smart Resume
+          </Link>
         )}
 
         {user ? (
-            <button onClick={handleLogout} style={styles.ctaButton}>Logout</button>
+          <button onClick={handleLogout} style={styles.ctaButton}>
+            Logout
+          </button>
         ) : (
-            <Link to="/auth" style={styles.ctaButton}>Login / Sign Up</Link>
+          <Link to="/auth" style={styles.ctaButton}>
+            Login / Sign Up
+          </Link>
         )}
       </div>
 
