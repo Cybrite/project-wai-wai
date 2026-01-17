@@ -17,8 +17,8 @@ from dotenv import load_dotenv
 from groq import Groq
 from huggingface_hub import InferenceClient
 from supabase import create_client, Client
-from google import genai
-from google.genai import types 
+import google.generativeai as genai
+from google.generativeai import types 
 import pdfplumber
 import docx
 from reportlab.lib.pagesizes import letter
