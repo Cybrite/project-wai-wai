@@ -1,9 +1,17 @@
 // frontend/wai-wai/src/components/Navbar.jsx
-import React, { useState, useEffect } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
-import { motion, AnimatePresence } from 'framer-motion';
-import { FiHome, FiBriefcase, FiUser, FiLogOut, FiMenu, FiX } from 'react-icons/fi';
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  FiHome,
+  FiBriefcase,
+  FiUser,
+  FiLogOut,
+  FiMenu,
+  FiX,
+  FiBarChart2,
+} from "react-icons/fi";
 
 const Navbar = () => {
   const { user, logout } = useAuth();
@@ -42,15 +50,20 @@ const Navbar = () => {
             label: "Job Generator",
             icon: <FiBriefcase />,
           },
+          {
+            path: "/analytics",
+            label: "Analytics",
+            icon: <FiBarChart2 />,
+          },
         ]
       : []),
-     // Add Resume Parser to main nav for visibility
-    ...(user 
+    // Add Resume Parser to main nav for visibility
+    ...(user
       ? [
           {
             path: "/resume-parser",
             label: "Smart Resume",
-            icon: <FiUser />, 
+            icon: <FiUser />,
           },
         ]
       : []),
@@ -83,30 +96,42 @@ const Navbar = () => {
 
         {/* Desktop Links */}
         <div style={styles.desktopLinks}>
-            {navLinks.map((link) => (
-                <Link key={link.path} to={link.path} style={{textDecoration: 'none'}}>
-                    <div style={isActive(link.path) ? styles.navLinkActive : styles.navLink}>
-                        {link.label}
-                    </div>
-                </Link>
-            ))}
+          {navLinks.map((link) => (
+            <Link
+              key={link.path}
+              to={link.path}
+              style={{ textDecoration: "none" }}
+            >
+              <div
+                style={
+                  isActive(link.path) ? styles.navLinkActive : styles.navLink
+                }
+              >
+                {link.label}
+              </div>
+            </Link>
+          ))}
         </div>
 
         {/* User Actions (Desktop) */}
         <div style={styles.desktopActions}>
-            {user ? (
-                <button onClick={handleLogout} style={styles.ctaButton}>Logout</button>
-            ) : (
-                <Link to="/auth" style={styles.ctaButton}>Login</Link>
-            )}
+          {user ? (
+            <button onClick={handleLogout} style={styles.ctaButton}>
+              Logout
+            </button>
+          ) : (
+            <Link to="/auth" style={styles.ctaButton}>
+              Login
+            </Link>
+          )}
         </div>
 
         {/* Mobile Menu Toggle Button */}
-        <button 
-            style={styles.mobileMenuBtn} 
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        <button
+          style={styles.mobileMenuBtn}
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
-            {mobileMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+          {mobileMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
         </button>
       </div>
 
@@ -206,7 +231,12 @@ const styles = {
     alignItems: "center",
   },
   logoLink: { textDecoration: "none" },
-  logo: { display: "flex", alignItems: "center", gap: "0.75rem", cursor: "pointer" },
+  logo: {
+    display: "flex",
+    alignItems: "center",
+    gap: "0.75rem",
+    cursor: "pointer",
+  },
   logoIcon: {
     width: "40px",
     height: "40px",
@@ -226,12 +256,25 @@ const styles = {
     WebkitTextFillColor: "transparent",
     backgroundClip: "text",
   },
-  
+
   // Desktop Links
   desktopLinks: { display: "flex", alignItems: "center", gap: "2rem" },
-  navLink: { padding: "0.5rem 1rem", fontSize: "1rem", fontWeight: "600", color: "#6B7280", cursor: "pointer" },
-  navLinkActive: { padding: "0.5rem 1rem", fontSize: "1rem", fontWeight: "600", color: "#4F46E5", backgroundColor: "#EEF2FF", borderRadius: "0.5rem" },
-  
+  navLink: {
+    padding: "0.5rem 1rem",
+    fontSize: "1rem",
+    fontWeight: "600",
+    color: "#6B7280",
+    cursor: "pointer",
+  },
+  navLinkActive: {
+    padding: "0.5rem 1rem",
+    fontSize: "1rem",
+    fontWeight: "600",
+    color: "#4F46E5",
+    backgroundColor: "#EEF2FF",
+    borderRadius: "0.5rem",
+  },
+
   desktopActions: { display: "flex", alignItems: "center" },
   ctaButton: {
     padding: "0.75rem 1.5rem",
@@ -242,12 +285,18 @@ const styles = {
     border: "none",
     borderRadius: "0.75rem",
     cursor: "pointer",
-    textDecoration: 'none'
+    textDecoration: "none",
   },
-  
+
   // Mobile Button
-  mobileMenuBtn: { display: "none", background: "none", border: "none", cursor: "pointer", color: "#4F46E5" },
-  
+  mobileMenuBtn: {
+    display: "none",
+    background: "none",
+    border: "none",
+    cursor: "pointer",
+    color: "#4F46E5",
+  },
+
   // Mobile Menu Styles
   mobileMenu: {
     display: "flex",
