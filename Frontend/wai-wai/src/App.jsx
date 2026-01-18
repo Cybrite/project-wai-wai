@@ -10,6 +10,7 @@ import ResumeParser from "./pages/ResumeParser";
 import Analytics from "./pages/Analytics";
 import Auth from "./pages/Auth";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Notifications from './pages/Notifications'; // Added Import
 import "./App.css";
 
 function App() {
@@ -71,6 +72,17 @@ function App() {
                   </ProtectedRoute>
                 }
               />
+
+              {/* Notifications Page: Added New Route */}
+              <Route 
+                path="/notifications" 
+                element={
+                  <ProtectedRoute>
+                    <Notifications />
+                  </ProtectedRoute>
+                } 
+              />
+
             </Routes>
           </main>
           <Footer />
