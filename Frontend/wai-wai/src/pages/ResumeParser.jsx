@@ -196,7 +196,7 @@ const ResumeParser = () => {
             marginBottom: "8px",
           }}
         >
-          <label style={styles.label}>{label}</label>
+          <label className="rp-label">{label}</label>
           <span
             style={{
               fontSize: "0.8rem",
@@ -211,14 +211,14 @@ const ResumeParser = () => {
           <textarea
             value={displayVal || ""}
             onChange={(e) => handleArrayChange(fieldKey, e.target.value)}
-            style={{ ...styles.input, minHeight: "100px" }}
+            className="rp-input rp-textarea"
           />
         ) : (
           <input
             type="text"
             value={displayVal || ""}
             onChange={(e) => handleChange(fieldKey, e.target.value)}
-            style={{ ...styles.input }}
+            className="rp-input"
           />
         )}
       </div>
