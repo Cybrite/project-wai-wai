@@ -114,7 +114,7 @@ const Home = () => {
   return (
     <div className="home-container">
       <section className="hero-section">
-        <h1 className="hero-title">Welcome to Wai Wai</h1>
+        <h1 className="hero-title">Welcome to Wevolve AI</h1>
         {/* <p className="hero-subtitle">
           Your intelligent job matching and recruitment platform
         </p> */}
