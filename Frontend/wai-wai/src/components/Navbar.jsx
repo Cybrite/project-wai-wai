@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { motion, AnimatePresence } from "framer-motion";
-import wevolveLogo from '../assets/wevolve_logo.png';
+import wevolveLogo from "../assets/wevolve_logo.png";
 import {
   FiHome,
   FiBriefcase,
@@ -88,18 +88,17 @@ const Navbar = () => {
       transition={{ duration: 0.5 }}
     >
       <div className="navbar-container">
-        {/* Logo */}
+        {/* Logo (hidden on mobile via CSS) */}
         <Link to="/" className="logo-link">
-        <motion.div
+          <motion.div
             className="logo"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            {/* Replaced Icon with Image */}
-            <img 
-              src={wevolveLogo} 
-              alt="Wevolve AI" 
-              style={{ height: '40px', width: 'auto', marginRight: '10px' }} 
+            <img
+              src={wevolveLogo}
+              alt="Wevolve AI"
+              style={{ height: "40px", width: "auto", marginRight: "10px" }}
             />
             <span className="logo-text">Wevolve AI</span>
           </motion.div>
@@ -154,6 +153,22 @@ const Navbar = () => {
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
           >
+            {/* Mobile Logo inside hamburger */}
+            <Link
+              to="/"
+              style={{ textDecoration: "none" }}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <motion.div
+                className="mobile-logo"
+                initial={{ x: -20, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: 0.05 }}
+              >
+                <img src={wevolveLogo} alt="Wevolve AI" />
+                <span className="mobile-logo-text">Wevolve AI</span>
+              </motion.div>
+            </Link>
             {navLinks.map((link, index) => (
               <Link
                 key={link.path}
