@@ -1,6 +1,11 @@
 /* ===== SIMPLE AUTH PAGE ===== */
 
 .auth-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   width: 100%;
   min-height: 100vh;
   display: flex;
@@ -10,6 +15,7 @@
   padding: 20px;
   font-family:
     -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
+  z-index: 1;
 }
 
 .auth-wrapper {
