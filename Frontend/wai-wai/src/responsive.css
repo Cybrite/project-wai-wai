@@ -3,457 +3,455 @@
 /* ============================================
    LARGE SCREENS (1024px and up)
    ============================================ */
-@media (min-width: 1024px) {
-  .container {
-    padding: 0 var(--space-8);
-  }
-
-  .section {
-    padding: var(--space-20) var(--space-8);
-  }
-}
-
-/* ============================================
-   TABLET & SMALL LAPTOPS (768px - 1023px)
-   ============================================ */
-@media (max-width: 1023px) {
-  .section {
-    padding: var(--space-16) var(--space-6);
-  }
-
-  .container {
-    padding: 0 var(--space-6);
-  }
-
-  .grid-4,
-  .grid-3 {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-4);
-  }
-
-  .grid-2 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .card {
-    padding: var(--space-5);
-  }
-
-  /* Typography adjustments */
-  h1 {
-    font-size: 2.25rem;
-    margin-bottom: var(--space-4);
-  }
-
-  h2 {
-    font-size: 1.875rem;
-    margin-bottom: var(--space-3);
-  }
-
-  h3 {
-    font-size: 1.5rem;
-    margin-bottom: var(--space-3);
-  }
-
-  p {
-    font-size: var(--text-md);
-    line-height: var(--leading-normal);
-  }
-
-  button {
-    padding: var(--space-3) var(--space-4);
-    font-size: var(--text-md);
-  }
-
-  /* Form inputs */
-  input,
-  textarea,
-  select {
-    padding: var(--space-3) var(--space-4);
-    font-size: 16px;
-  }
-}
-
-/* ============================================
-   PORTRAIT TABLETS & LARGE PHONES (600px - 767px)
-   ============================================ */
-@media (max-width: 768px) {
-  body {
-    font-size: 15px;
-  }
-
-  .section {
-    padding: var(--space-12) var(--space-4);
-  }
-
-  .container {
-    padding: 0 var(--space-4);
-  }
-
-  /* Collapse all grids to single column */
-  .grid-4,
-  .grid-3,
-  .grid-2 {
-    grid-template-columns: 1fr;
-    gap: var(--space-3);
-  }
-
-  .card {
-    padding: var(--space-4);
-  }
-
-  /* Typography adjustments */
-  h1 {
-    font-size: 1.75rem;
-    margin-bottom: var(--space-3);
-    line-height: var(--leading-tight);
-  }
-
-  h2 {
-    font-size: 1.5rem;
-    margin-bottom: var(--space-2);
-  }
-
-  h3 {
-    font-size: 1.25rem;
-    margin-bottom: var(--space-2);
-  }
-
-  h4 {
-    font-size: 1rem;
-    margin-bottom: var(--space-2);
-  }
-
-  h5,
-  h6 {
-    font-size: 0.95rem;
-    margin-bottom: var(--space-1);
-  }
-
-  p {
-    font-size: var(--text-md);
-    margin-bottom: var(--space-3);
-  }
-
-  /* Form inputs - 16px minimum to prevent iOS zoom */
-  input,
-  textarea,
-  select {
-    font-size: 16px;
-    padding: var(--space-3) var(--space-3);
-    min-height: 44px;
-    border-radius: var(--radius-md);
-  }
-
-  button {
-    padding: var(--space-3) var(--space-4);
-    font-size: var(--text-md);
-    min-height: 44px;
-    border-radius: var(--radius-md);
-  }
-
-  /* Button groups stack vertically */
-  .button-group {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: var(--space-3);
-  }
-
-  .button-group button,
-  .button-group a {
-    width: 100%;
-  }
-
-  /* Images responsive */
-  img {
-    height: auto;
-    width: 100%;
-  }
-
-  /* Tables - horizontal scroll */
-  table {
-    font-size: var(--text-sm);
-  }
-
-  th,
-  td {
-    padding: var(--space-2) var(--space-3);
-  }
-
-  /* Modals and overlays */
-  .modal,
-  .modal-overlay {
-    width: 100%;
-    max-width: calc(100% - var(--space-4));
-  }
-
-  /* Flex adjustments */
-  .flex-column-reverse {
-    flex-direction: column-reverse;
-  }
-}
-
-/* ============================================
-   SMALL PHONES (480px - 599px)
-   ============================================ */
-@media (max-width: 599px) {
-  html {
-    font-size: 14px;
-  }
-
-  body {
-    line-height: var(--leading-normal);
-  }
-
-  .section {
-    padding: var(--space-8) var(--space-3);
-  }
-
-  .container {
-    padding: 0 var(--space-3);
-  }
-
-  .card {
-    padding: var(--space-3);
-  }
-
-  /* Typography - more aggressive scaling */
-  h1 {
-    font-size: 1.5rem;
-    margin-bottom: var(--space-2);
-  }
-
-  h2 {
-    font-size: 1.25rem;
-    margin-bottom: var(--space-2);
-  }
-
-  h3 {
-    font-size: 1.1rem;
-    margin-bottom: var(--space-2);
-  }
-
-  p {
-    font-size: var(--text-md);
-    margin-bottom: var(--space-2);
-  }
-
-  /* Form elements */
-  input,
-  textarea,
-  select {
-    font-size: 16px;
-    padding: var(--space-3) var(--space-3);
-    width: 100%;
-    border-radius: var(--radius-md);
-  }
-
-  button {
-    padding: var(--space-3) var(--space-4);
-    font-size: var(--text-md);
-    width: 100%;
-    min-height: 44px;
-  }
-
-  /* Grid spacing */
-  .grid,
-  .grid-2,
-  .grid-3,
-  .grid-4 {
-    gap: var(--space-2);
-  }
-
-  /* Icon sizing */
-  svg {
-    max-width: 100%;
-    height: auto;
-  }
-
-  /* Margin and padding adjustments */
-  .mt-lg { margin-top: var(--space-4) !important; }
-  .mb-lg { margin-bottom: var(--space-4) !important; }
-  .mt-md { margin-top: var(--space-3) !important; }
-  .mb-md { margin-bottom: var(--space-3) !important; }
-}
-
-/* ============================================
-   EXTRA SMALL PHONES (below 480px)
-   ============================================ */
-@media (max-width: 479px) {
-  html {
-    font-size: 13px;
-  }
-
-  .section {
-    padding: var(--space-6) var(--space-2);
-  }
-
-  .container {
-    padding: 0 var(--space-2);
-  }
-
-  .card {
-    padding: var(--space-2);
-  }
-
-  h1 {
-    font-size: 1.25rem;
-    margin-bottom: var(--space-2);
-  }
-
-  h2 {
-    font-size: 1.1rem;
-    margin-bottom: var(--space-1);
-  }
-
-  h3 {
-    font-size: 1rem;
-    margin-bottom: var(--space-1);
-  }
-
-  button,
-  input,
-  textarea,
-  select {
-    font-size: 16px;
-    padding: var(--space-2) var(--space-3);
-    width: 100%;
-  }
-
-  button {
-    min-height: 44px;
-  }
-
-  /* Disable horizontal scroll */
-  body,
-  html {
-    overflow-x: hidden;
-    width: 100%;
-  }
-
-  /* Utility classes for spacing */
-  .no-margin { margin: 0 !important; }
-  .no-padding { padding: 0 !important; }
-}
-
-/* ============================================
-   LANDSCAPE ORIENTATION (Mobile)
-   ============================================ */
-@media (max-height: 500px) and (orientation: landscape) {
-  .section {
-    padding: var(--space-4) var(--space-4);
-  }
-
-  h1 {
-    font-size: 1.5rem;
-    margin-bottom: var(--space-2);
-  }
-
-  h2 {
-    font-size: 1.25rem;
-    margin-bottom: var(--space-2);
-  }
-
-  button {
-    padding: var(--space-2) var(--space-3);
-  }
-}
-
-/* ============================================
-   PRINT STYLES
-   ============================================ */
-@media print {
-  body {
-    background: white;
-    color: black;
-  }
-
-  a {
-    text-decoration: underline;
-  }
-
-  button,
-  .button-group,
-  nav {
-    display: none;
-  }
-
-  .card {
-    page-break-inside: avoid;
-    border: 1px solid #ccc;
-  }
-}
-  }
-
+   @media (min-width: 1024px) {
+    .container {
+      padding: 0 var(--space-8);
+    }
+  
+    .section {
+      padding: var(--space-20) var(--space-8);
+    }
+  }
+  
+  /* ============================================
+     TABLET & SMALL LAPTOPS (768px - 1023px)
+     ============================================ */
+  @media (max-width: 1023px) {
+    .section {
+      padding: var(--space-16) var(--space-6);
+    }
+  
+    .container {
+      padding: 0 var(--space-6);
+    }
+  
+    .grid-4,
+    .grid-3 {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-4);
+    }
+  
+    .grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    .card {
+      padding: var(--space-5);
+    }
+  
+    /* Typography adjustments */
+    h1 {
+      font-size: 2.25rem;
+      margin-bottom: var(--space-4);
+    }
+  
+    h2 {
+      font-size: 1.875rem;
+      margin-bottom: var(--space-3);
+    }
+  
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: var(--space-3);
+    }
+  
+    p {
+      font-size: var(--text-md);
+      line-height: var(--leading-normal);
+    }
+  
+    button {
+      padding: var(--space-3) var(--space-4);
+      font-size: var(--text-md);
+    }
+  
+    /* Form inputs */
+    input,
+    textarea,
+    select {
+      padding: var(--space-3) var(--space-4);
+      font-size: 16px;
+    }
+  }
+  
+  /* ============================================
+     PORTRAIT TABLETS & LARGE PHONES (600px - 767px)
+     ============================================ */
+  @media (max-width: 768px) {
+    body {
+      font-size: 15px;
+    }
+  
+    .section {
+      padding: var(--space-12) var(--space-4);
+    }
+  
+    .container {
+      padding: 0 var(--space-4);
+    }
+  
+    /* Collapse all grids to single column */
+    .grid-4,
+    .grid-3,
+    .grid-2 {
+      grid-template-columns: 1fr;
+      gap: var(--space-3);
+    }
+  
+    .card {
+      padding: var(--space-4);
+    }
+  
+    /* Typography adjustments */
+    h1 {
+      font-size: 1.75rem;
+      margin-bottom: var(--space-3);
+      line-height: var(--leading-tight);
+    }
+  
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: var(--space-2);
+    }
+  
+    h3 {
+      font-size: 1.25rem;
+      margin-bottom: var(--space-2);
+    }
+  
+    h4 {
+      font-size: 1rem;
+      margin-bottom: var(--space-2);
+    }
+  
+    h5,
+    h6 {
+      font-size: 0.95rem;
+      margin-bottom: var(--space-1);
+    }
+  
+    p {
+      font-size: var(--text-md);
+      margin-bottom: var(--space-3);
+    }
+  
+    /* Form inputs - 16px minimum to prevent iOS zoom */
+    input,
+    textarea,
+    select {
+      font-size: 16px;
+      padding: var(--space-3) var(--space-3);
+      min-height: 44px;
+      border-radius: var(--radius-md);
+    }
+  
+    button {
+      padding: var(--space-3) var(--space-4);
+      font-size: var(--text-md);
+      min-height: 44px;
+      border-radius: var(--radius-md);
+    }
+  
+    /* Button groups stack vertically */
+    .button-group {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      gap: var(--space-3);
+    }
+  
+    .button-group button,
+    .button-group a {
+      width: 100%;
+    }
+  
+    /* Images responsive */
+    img {
+      height: auto;
+      width: 100%;
+    }
+  
+    /* Tables - horizontal scroll */
+    table {
+      font-size: var(--text-sm);
+    }
+  
+    th,
+    td {
+      padding: var(--space-2) var(--space-3);
+    }
+  
+    /* Modals and overlays */
+    .modal,
+    .modal-overlay {
+      width: 100%;
+      max-width: calc(100% - var(--space-4));
+    }
+  
+    /* Flex adjustments */
+    .flex-column-reverse {
+      flex-direction: column-reverse;
+    }
+  }
+  
+  /* ============================================
+     SMALL PHONES (480px - 599px)
+     ============================================ */
+  @media (max-width: 599px) {
+    html {
+      font-size: 14px;
+    }
+  
+    body {
+      line-height: var(--leading-normal);
+    }
+  
+    .section {
+      padding: var(--space-8) var(--space-3);
+    }
+  
+    .container {
+      padding: 0 var(--space-3);
+    }
+  
+    .card {
+      padding: var(--space-3);
+    }
+  
+    /* Typography - more aggressive scaling */
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: var(--space-2);
+    }
+  
+    h2 {
+      font-size: 1.25rem;
+      margin-bottom: var(--space-2);
+    }
+  
+    h3 {
+      font-size: 1.1rem;
+      margin-bottom: var(--space-2);
+    }
+  
+    p {
+      font-size: var(--text-md);
+      margin-bottom: var(--space-2);
+    }
+  
+    /* Form elements */
+    input,
+    textarea,
+    select {
+      font-size: 16px;
+      padding: var(--space-3) var(--space-3);
+      width: 100%;
+      border-radius: var(--radius-md);
+    }
+  
+    button {
+      padding: var(--space-3) var(--space-4);
+      font-size: var(--text-md);
+      width: 100%;
+      min-height: 44px;
+    }
+  
+    /* Grid spacing */
+    .grid,
+    .grid-2,
+    .grid-3,
+    .grid-4 {
+      gap: var(--space-2);
+    }
+  
+    /* Icon sizing */
+    svg {
+      max-width: 100%;
+      height: auto;
+    }
+  
+    /* Margin and padding adjustments */
+    .mt-lg { margin-top: var(--space-4) !important; }
+    .mb-lg { margin-bottom: var(--space-4) !important; }
+    .mt-md { margin-top: var(--space-3) !important; }
+    .mb-md { margin-bottom: var(--space-3) !important; }
+  }
+  
+  /* ============================================
+     EXTRA SMALL PHONES (below 480px)
+     ============================================ */
+  @media (max-width: 479px) {
+    html {
+      font-size: 13px;
+    }
+  
+    .section {
+      padding: var(--space-6) var(--space-2);
+    }
+  
+    .container {
+      padding: 0 var(--space-2);
+    }
+  
+    .card {
+      padding: var(--space-2);
+    }
+  
+    h1 {
+      font-size: 1.25rem;
+      margin-bottom: var(--space-2);
+    }
+  
+    h2 {
+      font-size: 1.1rem;
+      margin-bottom: var(--space-1);
+    }
+  
+    h3 {
+      font-size: 1rem;
+      margin-bottom: var(--space-1);
+    }
+  
+    button,
+    input,
+    textarea,
+    select {
+      font-size: 16px;
+      padding: var(--space-2) var(--space-3);
+      width: 100%;
+    }
+  
+    button {
+      min-height: 44px;
+    }
+  
+    /* Disable horizontal scroll */
+    body,
+    html {
+      overflow-x: hidden;
+      width: 100%;
+    }
+  
+    /* Utility classes for spacing */
+    .no-margin { margin: 0 !important; }
+    .no-padding { padding: 0 !important; }
+  }
+  
+  /* ============================================
+     LANDSCAPE ORIENTATION (Mobile)
+     ============================================ */
+  @media (max-height: 500px) and (orientation: landscape) {
+    .section {
+      padding: var(--space-4) var(--space-4);
+    }
+  
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: var(--space-2);
+    }
+  
+    h2 {
+      font-size: 1.25rem;
+      margin-bottom: var(--space-2);
+    }
+  
+    button {
+      padding: var(--space-2) var(--space-3);
+    }
+  }
+  
+  /* ============================================
+     PRINT STYLES
+     ============================================ */
+  @media print {
+    body {
+      background: white;
+      color: black;
+    }
+  
+    a {
+      text-decoration: underline;
+    }
+  
+    button,
+    .button-group,
+    nav {
+      display: none;
+    }
+  
+    .card {
+      page-break-inside: avoid;
+      border: 1px solid #ccc;
+    }
+  }
+  
   input,
   textarea,
   select {
     padding: 0.7rem 0.875rem;
   }
-
+  
   button {
     padding: 0.7rem 1rem;
     font-size: 0.9rem;
   }
-}
-
-/* Touch Device Optimizations */
-@media (hover: none) and (pointer: coarse) {
-  /* Ensure touch targets are at least 44x44px */
-  button,
-  a {
-    min-height: 44px;
-    min-width: 44px;
+  
+  /* Touch Device Optimizations */
+  @media (hover: none) and (pointer: coarse) {
+    /* Ensure touch targets are at least 44x44px */
+    button,
+    a {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  
+    /* Add active state feedback */
+    button:active {
+      transform: scale(0.98);
+    }
   }
-
-  /* Add active state feedback */
-  button:active {
-    transform: scale(0.98);
+  
+  /* iOS Safari Fixes */
+  @supports (-webkit-touch-callout: none) {
+    /* Prevent zoom on input focus */
+    input,
+    textarea,
+    select {
+      font-size: 16px;
+    }
   }
-}
-
-/* iOS Safari Fixes */
-@supports (-webkit-touch-callout: none) {
-  /* Prevent zoom on input focus */
-  input,
-  textarea,
-  select {
-    font-size: 16px;
+  
+  /* Landscape Mode on Small Devices */
+  @media (max-height: 500px) and (orientation: landscape) {
+    .section {
+      padding: 1.5rem 1rem;
+    }
   }
-}
-
-/* Landscape Mode on Small Devices */
-@media (max-height: 500px) and (orientation: landscape) {
-  .section {
-    padding: 1.5rem 1rem;
+  
+  /* Print Styles */
+  @media print {
+    nav,
+    footer,
+    .action-buttons {
+      display: none;
+    }
+  
+    body {
+      background: white;
+    }
+  
+    .section {
+      page-break-inside: avoid;
+    }
   }
-}
-
-/* Print Styles */
-@media print {
-  nav,
-  footer,
-  .action-buttons {
-    display: none;
+  
+  /* Accessibility - Reduced Motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
-
-  body {
-    background: white;
-  }
-
-  .section {
-    page-break-inside: avoid;
-  }
-}
-
-/* Accessibility - Reduced Motion */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}

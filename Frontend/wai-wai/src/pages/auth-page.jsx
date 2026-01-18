@@ -1,7 +1,6 @@
-"use client";
-
+// frontend/wai-wai/src/pages/auth-page.jsx
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion"; // <--- This is the Critical Line
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import {
@@ -17,7 +16,6 @@ import {
   FileText,
   Users,
 } from "lucide-react";
-import "../styles/Auth.css";
 
 const Auth = () => {
   const { login, register } = useAuth();
@@ -93,14 +91,11 @@ const Auth = () => {
 
   const currentRole = roleContent[userRole];
   const RoleIcon = currentRole.icon;
-
-  // Floating particles for background
   const particles = Array.from({ length: 6 }, (_, i) => i);
 
   return (
     <div className="auth-container">
       <div className="auth-wrapper">
-        {/* Left Side - Branding with Role-based Animation */}
         <motion.div
           className="auth-branding-side"
           initial={{ opacity: 0, x: -50 }}
@@ -111,7 +106,6 @@ const Auth = () => {
           }}
           transition={{ duration: 0.6 }}
         >
-          {/* Animated Background Particles */}
           <div className="auth-particles">
             {particles.map((i) => (
               <motion.div
@@ -223,7 +217,6 @@ const Auth = () => {
           </div>
         </motion.div>
 
-        {/* Right Side - Form */}
         <motion.div
           className="auth-form-side"
           initial={{ opacity: 0, x: 50 }}
@@ -259,14 +252,12 @@ const Auth = () => {
               </motion.p>
             </AnimatePresence>
 
-            {/* Role Tabs with Sliding Indicator */}
             <motion.div
               className="auth-role-selector"
               initial={{ y: -20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              {/* Sliding Background Indicator */}
               <motion.div
                 className="auth-role-indicator"
                 layout
@@ -321,7 +312,6 @@ const Auth = () => {
               </motion.button>
             </motion.div>
 
-            {/* Error Message */}
             <AnimatePresence>
               {error && (
                 <motion.div
@@ -336,7 +326,6 @@ const Auth = () => {
               )}
             </AnimatePresence>
 
-            {/* Form */}
             <form onSubmit={handleSubmit} className="auth-form">
               <motion.div
                 className="auth-input-group"
@@ -450,7 +439,6 @@ const Auth = () => {
               </motion.button>
             </form>
 
-            {/* Switch Auth Mode */}
             <motion.p
               className="auth-switch-text"
               initial={{ opacity: 0 }}
