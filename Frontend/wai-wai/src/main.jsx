@@ -9,14 +9,14 @@ import ReactDOM from 'react-dom/client'
 
 import './index.css'
 import './styles/auth-global.css'     // Auth Page
-import './styles/Home.css'            // Home Page
-import './styles/JobDashboard.css'    // Dashboard
-import './styles/JobGenerator.css'    // Job Gen
+import './styles/home-page.css'            // Home Page
+import './styles/job-dashboard.css'    // Dashboard
+import './styles/job-generator.css'   // Job Gen
 import './styles/Analytics.css'       // Analytics
-import './styles/ResumeParser.css'    // Smart Resume
+import './styles/resume-parser-global.css'    // Smart Resume
 import './styles/Notifications.css'   // Notifications
-import './styles/Navbar.css'          // Navbar
-import './styles/Footer.css'          // Footer
+import './styles/navbar-global.css'
+import './styles/footer-global.css'
 import "./responsive.css";     // Mobile adjustments
 
 createRoot(document.getElementById("root")).render(
